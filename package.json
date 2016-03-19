@@ -1,0 +1,18 @@
+{
+  "name": "adscensio",
+  "version": "1.0.0",
+  "description": "Ascension",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexandrescu/Adscensio.git"
+  },
+  "author": "A.A.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alexandrescu/Adscensio/issues"
+  },
+  "homepage": "https://github.com/Alexandrescu/Adscensio#readme"
+}
