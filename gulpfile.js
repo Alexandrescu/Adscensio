@@ -39,13 +39,25 @@ var moveIndex = function() {
     .pipe(liveReload());
 };
 
+var moveCss = function() {
+  return gulp.src(['source/css/**'])
+    .pipe(gulp.dest('build/assets/'))
+    .pipe(liveReload());
+};
+
+gulp.task('watch-css', function() {
+  watch('source/css/**', function() {
+    moveCss();
+  })
+});
+
 gulp.task('watch-html', function() {
   watch('source/index.html', function() {
     moveIndex();
   })
 });
 
-gulp.task('watch', ['watch-typescript', 'watch-html'], function(){
+gulp.task('watch', ['watch-typescript', 'watch-html', 'watch-css'], function(){
   liveReload.listen();
 });
 
@@ -59,6 +71,7 @@ gulp.task('clean', ['clean-typescript']);
 
 // Building tasks
 gulp.task('build', function() {
+  moveCss();
   moveIndex();
   gulp.src([
       'node_modules/angular/angular.js',
@@ -68,6 +81,7 @@ gulp.task('build', function() {
       'node_modules/angular-material/angular-material.css'
     ])
     .pipe(gulp.dest('build/resources'));
+
 });
 
 gulp.task('default', ['clean', 'build', 'watch']);

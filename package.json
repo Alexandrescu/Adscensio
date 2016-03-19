@@ -16,6 +16,11 @@
   },
   "homepage": "https://github.com/Alexandrescu/Adscensio#readme",
   "dependencies": {
+    "angular": "^1.5.2",
+    "angular-animate": "^1.5.2",
+    "angular-aria": "^1.5.2",
+    "angular-material": "^1.0.6",
+    "angular-messages": "^1.5.2",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-livereload": "^3.8.1",
