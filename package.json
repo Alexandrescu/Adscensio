@@ -14,5 +14,13 @@
   "bugs": {
     "url": "https://github.com/Alexandrescu/Adscensio/issues"
   },
-  "homepage": "https://github.com/Alexandrescu/Adscensio#readme"
+  "homepage": "https://github.com/Alexandrescu/Adscensio#readme",
+  "dependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-typescript": "^2.12.1",
+    "gulp-watch": "^4.3.5",
+    "merge2": "^1.0.1"
+  }
 }
