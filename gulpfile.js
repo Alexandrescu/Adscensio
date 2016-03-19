@@ -8,6 +8,7 @@ var typescript = require('gulp-typescript');
 var merge = require('merge2');
 var del = require('del');
 var liveReload = require('gulp-livereload');
+var tsd = require('gulp-tsd');
 
 // Creating typescript project.
 // This can have multiple props. Check out gulp-typescript.
@@ -16,7 +17,14 @@ var tsProject = typescript.createProject({
 });
 
 // Typescript
-gulp.task('typescript', ['clean-typescript'], function() {
+gulp.task('tsd', function(cb) {
+  tsd({
+    config: 'source/tsd.json',
+    command: 'reinstall'
+  }, cb);
+});
+
+gulp.task('typescript', ['clean-typescript', 'tsd'], function() {
   var tsResults = gulp.src('source/**/*.ts')
     .pipe(typescript(tsProject));
 
@@ -81,7 +89,6 @@ gulp.task('build', function() {
       'node_modules/angular-material/angular-material.css'
     ])
     .pipe(gulp.dest('build/resources'));
-
 });
 
 gulp.task('default', ['clean', 'build', 'watch']);
