@@ -24,7 +24,7 @@ gulp.task('tsd', function(cb) {
   }, cb);
 });
 
-gulp.task('typescript', ['clean-typescript', 'tsd'], function() {
+gulp.task('typescript', function() {
   var tsResults = gulp.src('source/**/*.ts')
     .pipe(typescript(tsProject));
 
@@ -42,7 +42,7 @@ gulp.task('watch-typescript', ['typescript'], function() {
 });
 
 var moveIndex = function() {
-  return gulp.src('source/index.html')
+  return gulp.src('source/**/*.html')
     .pipe(gulp.dest('build/'))
     .pipe(liveReload());
 };
@@ -60,7 +60,7 @@ gulp.task('watch-css', function() {
 });
 
 gulp.task('watch-html', function() {
-  watch('source/index.html', function() {
+  watch('source/**/*.html', function() {
     moveIndex();
   })
 });
@@ -78,7 +78,7 @@ gulp.task('clean-typescript', function() {
 gulp.task('clean', ['clean-typescript']);
 
 // Building tasks
-gulp.task('build', function() {
+gulp.task('build', ['tsd'], function() {
   moveCss();
   moveIndex();
   gulp.src([
