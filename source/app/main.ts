@@ -85,7 +85,7 @@ class Target {
         for (var index in this.taskList) {
             var task = this.taskList[index];
             if (task.done) {
-                total += task.units;
+                total += parseInt(task.units);
             }
         }
         return total;
@@ -94,7 +94,7 @@ class Target {
         var total:number = 0;
         for (var index in this.taskList) {
             var task = this.taskList[index];
-            total += task.units;
+            total += parseInt(task.units);
         }
         return total;
     }
