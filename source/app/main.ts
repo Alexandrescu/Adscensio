@@ -77,21 +77,27 @@ class Target {
     taskList: Array<Task>;
     doneTasks():number {
         var total:number = 0;
-        for (var task in this.taskList) {
+        for (var index in this.taskList) {
+            var task = this.taskList[index];
             if (task.done) {
-                total += 1
+                total += task.units;
             }
         }
         return total;
     }
     allTasks(): number {
-        return this.taskList.length;
+        var total:number = 0;
+        for (var index in this.taskList) {
+            var task = this.taskList[index];
+            total += task.units;
+        }
+        return total;
     }
     addTask(task: Task) {
         this.taskList.push(task);
     }
     progress():number {
-        return 77;
+        return parseInt(100 * (this.doneTasks() / this.allTasks()));
     }
 
     constructor(name: string) {

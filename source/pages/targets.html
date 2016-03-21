@@ -22,8 +22,18 @@
                         <ng-md-icon icon="done" style="fill: black"></ng-md-icon>
                     </md-button>
                 </div>
-                <div flex="100" ng-show="isList">
-                    My list
+                <div flex="100" ng-show="isList" layout="column">
+                    <div flex="100" ng-repeat="task in target.taskList">
+                        <md-checkbox ng-if="!task.done" ng-model="task.done" aria-label="task.title">
+                            {{task.title}} ({{task.units}})
+                        </md-checkbox>
+                    </div>
+                    <md-button ng-click="listShowDone = !listShowDone"> {{!listShowDone?"Show": "Hide"}} done tasks </md-button>
+                    <div flex="100" ng-repeat="task in target.taskList" ng-show="listShowDone">
+                        <md-checkbox ng-if="task.done" ng-model="task.done" aria-label="task.title">
+                            {{task.title}} ({{task.units}})
+                        </md-checkbox>
+                    </div>
                 </div>
                 <div flex="100" ng-show="isEdit">
                     Edit
