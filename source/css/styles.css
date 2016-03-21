@@ -1,43 +1,68 @@
 body {
-    background: #eee;
-}
-
-.container {
-    height: 100%;
     width: 100%;
 }
 
-#main {
-    width: 500px;
-    margin: auto;
-    text-align: left;
-    background: white;
-    padding: 50px 60px;
-    border: solid #ddd;
-    border-width: 0 1px 1px 1px;
+.container {
+    width: 100%;
+    display: inline-block;
 }
 
-#main h1 {
-    margin-top: 0;
-    font-size: 35px;
+#content {
+    width: 100%;
+    background: #eee;
+    display: table;
 }
 
-#main ul {
-    padding-left: 20px;
+.targetsFlashCards {
+    /* For breakpoint `-xs` */
+    /* For breakpoint `-sm` */
+    /* For breakpoint `-md` */
+    /* For breakpoint `-gt-md` */
 }
 
-#main .error {
-    border: 1px solid red;
-    background: #FDEFF0;
-    padding: 20px;
+.targetsFlashCards md-whiteframe-container {
+    /* background: #fff; */
 }
 
-#main .success {
-    margin-top: 25px;
+@media (max-width: 599px) {
+    .targetsFlashCards md-whiteframe {
+        margin: 5px;
+        height: 250px;
+        background-color: #c8e4fa;
+    }
+    .targetsFlashCards md-whiteframe-container > span {
+        font-size: 0.8em;
+    }
 }
 
-#main .success code {
-    font-size: 12px;
-    color: green;
-    line-height: 13px;
+@media (min-width: 600px) and (max-width: 1279px) {
+    .targetsFlashCards md-whiteframe {
+        margin: 7px;
+        height: 350px;
+        background-color: #ffb7eb;
+    }
+    .targetsFlashCards md-whiteframe-container > span {
+        font-size: 0.9em;
+    }
 }
+/*
+@media (min-width: 960px) and (max-width: 1279px) {
+    .targetsFlashCards md-whiteframe-container {
+        margin: 20px;
+        height: 90px;
+        background-color: #fcddde; }
+    .targetsFlashCards md-whiteframe-container > span {
+        font-size: 0.9em; } }
+*/
+@media (min-width: 1280px) {
+    .targetsFlashCards md-whiteframe-container {}
+    .targetsFlashCards md-whiteframe {
+        margin: 10px;
+        height: 400px;
+        background-color: #F2FCE2;
+    }
+    .targetsFlashCards md-whiteframe-container > span {
+        font-size: 1.0em;
+    }
+}
+

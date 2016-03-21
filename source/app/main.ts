@@ -2,11 +2,11 @@ var adscension = angular.module('adscension', ['ngMaterial', 'ngRoute']);
 
 adscension.config(function($routeProvider, $locationProvider){
     $routeProvider
-        .when('/', {
+        .when('/targets', {
             templateUrl: '/pages/home.html',
             controller: 'HomeController'
         })
-        .when('/targets', {
+        .when('/', {
             templateUrl: '/pages/targets.html',
             controller: 'TargetsController'
         })
