@@ -22,22 +22,55 @@
                         <ng-md-icon icon="done" style="fill: black"></ng-md-icon>
                     </md-button>
                 </div>
+
+
+
                 <div flex="100" ng-show="isList" layout="column">
                     <div flex="100" ng-repeat="task in target.taskList">
-                        <md-checkbox ng-if="!task.done" ng-model="task.done" aria-label="task.title">
+                        <md-checkbox ng-if="!task.done" ng-model="task.done" aria-label="task.title" ng-change="updateTarget(target)">
                             {{task.title}} ({{task.units}})
                         </md-checkbox>
                     </div>
                     <md-button ng-click="listShowDone = !listShowDone"> {{!listShowDone?"Show": "Hide"}} done tasks </md-button>
                     <div flex="100" ng-repeat="task in target.taskList" ng-show="listShowDone">
-                        <md-checkbox ng-if="task.done" ng-model="task.done" aria-label="task.title">
+                        <md-checkbox ng-if="task.done" ng-model="task.done" aria-label="task.title" ng-change="updateTarget(target)">
                             {{task.title}} ({{task.units}})
                         </md-checkbox>
                     </div>
                 </div>
-                <div flex="100" ng-show="isEdit">
-                    Edit
+
+
+
+                <div flex="100" ng-show="isEdit" layout="column">
+                    <div flex="100" ng-repeat="task in target.taskList" layout="row">
+                        <div flex="10" style="margin-top: 12px; margin-right: 5px">
+                            <md-button class="md-icon-button" aria-label="Remove">
+                                <ng-md-icon icon="delete" style="fill: black"></ng-md-icon>
+                            </md-button>
+                        </div>
+
+                        <div flex="70">
+                            <md-input-container class="md-block">
+                                <label>Task name</label>
+                                <input ng-model="task.title">
+                            </md-input-container>
+                        </div>
+
+                        <div flex="20">
+
+                            <md-input-container style="margin-right: 10px;">
+                                <label>Units</label>
+                                <md-select ng-model="task.units">
+                                    <md-option ng-repeat="size in [1,2,3,4,5,6,7,8,9]" value="{{size}}">{{size}}</md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
                 </div>
+
+
+
+
                 <div flex="100" ng-show="isCheck">
                     Check
                 </div>

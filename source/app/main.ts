@@ -57,7 +57,12 @@ adscension.controller('TargetsController', ['targets', '$scope',
             $scope.isList = false;
             $scope.isEdit = false;
             $scope.isCheck = !$scope.isCheck;
-        }
+        };
+
+        $scope.updateTarget = function(target: Target) {
+            // TODO: implement this.
+            console.log("Updating target", target);
+        };
     }
 ]);
 
