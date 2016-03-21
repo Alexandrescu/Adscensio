@@ -58,11 +58,11 @@ body {
     .targetsFlashCards md-whiteframe-container {}
     .targetsFlashCards md-whiteframe {
         margin: 10px;
-        height: 400px;
+        /* height: 400px; */
+        min-height: 100px;
         background-color: #F2FCE2;
     }
     .targetsFlashCards md-whiteframe-container > span {
         font-size: 1.0em;
     }
 }
-

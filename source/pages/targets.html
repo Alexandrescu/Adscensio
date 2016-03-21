@@ -1,4 +1,39 @@
-<md-whiteframe-container layout="row" layout-padding layout-wrap layout-fill ng-cloak class="targetsFlashCards">
+<div layout="row" layout-padding layout-wrap layout-fill ng-cloak class="targetsFlashCards">
+    <md-whiteframe-container flex="33" flex-xs="100" flex-md="50" flex-sm="50" layout="row" layout-padding layout-fill
+        ng-repeat="target in targets">
+        <md-whiteframe class="md-whiteframe-3dp" flex>
+            <div layout="row" layout-align="space-around center" layout-wrap>
+                <div flex="85" layout="row", layout-align="space-around center">
+                    <md-progress-circular md-mode="determinate" value="{{target.progress()}}"></md-progress-circular>
+                    <span>{{target.progress()}}%</span>
+                    <h2> {{target.name}} </h2>
+                </div>
+                <div flex="15" layout="column" layout-align="center center" layout-fill>
+                    <md-button class="md-icon-button" flex aria-label="List details"
+                        ng-click="toggleList()">
+                        <ng-md-icon icon="list" style="fill: black"></ng-md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" flex aria-label="Edit tasks"
+                        ng-click="toggleEdit()">
+                        <ng-md-icon icon="edit" style="fill: black"></ng-md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" flex aria-label="Check tasks"
+                        ng-click="toggleCheck()">
+                        <ng-md-icon icon="done" style="fill: black"></ng-md-icon>
+                    </md-button>
+                </div>
+                <div flex="100" ng-show="isList">
+                    My list
+                </div>
+                <div flex="100" ng-show="isEdit">
+                    Edit
+                </div>
+                <div flex="100" ng-show="isCheck">
+                    Check
+                </div>
+            </div>
+        </md-whiteframe>
+    </md-whiteframe-container>
     <md-whiteframe-container flex="33" flex-xs="100" flex-md="50" flex-sm="50" layout="row" layout-padding layout-fill>
         <md-whiteframe class="md-whiteframe-2dp" flex>
             <span> Uno </span>
