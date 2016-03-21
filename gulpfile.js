@@ -87,7 +87,9 @@ gulp.task('build', ['tsd'], function() {
       'node_modules/angular-animate/angular-animate.js',
       'node_modules/angular-aria/angular-aria.js',
       'node_modules/angular-material/angular-material.js',
-      'node_modules/angular-material/angular-material.css'
+      'node_modules/angular-material/angular-material.css',
+      'node_modules/angular-material-icons/angular-material-icons.js',
+      'node_modules/angular-material-icons/angular-material-icons.css'
     ])
     .pipe(gulp.dest('build/resources'));
 });
